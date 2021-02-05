@@ -1,0 +1,24 @@
+plugins {
+    id 'scala'
+    id 'application'
+}
+
+
+dependencies {
+    implementation group: 'io.vertx', name: 'vertx-core', version: '4.0.1'
+
+    // base
+    implementation 'org.scala-lang:scala-library:2.11.8'
+    testImplementation 'junit:junit:4.12'
+}
+
+
+application {
+    mainClass = 'plumber.App'
+}
+
+
+task mkdirs() {
+    sourceSets*.scala.srcDirs*.each { it.mkdirs() }
+    sourceSets*.resources.srcDirs*.each { it.mkdirs() }
+}
