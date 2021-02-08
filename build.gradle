@@ -3,9 +3,13 @@ plugins {
     id 'application'
 }
 
+ext {
+    vertxVersion = '4.0.1'
+}
 
 dependencies {
-    implementation group: 'io.vertx', name: 'vertx-core', version: '4.0.1'
+    implementation group: 'io.vertx', name: 'vertx-core', version: vertxVersion
+    implementation group: 'io.vertx', name: 'vertx-codegen', version: vertxVersion
 
     // base
     implementation 'org.scala-lang:scala-library:2.11.8'
