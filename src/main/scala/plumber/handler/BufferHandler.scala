@@ -11,9 +11,10 @@ import io.vertx.core.buffer.Buffer
 class BufferHandler extends Handler[Buffer] {
 
 
-  override def handle(buff: Buffer): Unit = {
-    println(buff.getByte(0))
-  }
+	override def handle(buff: Buffer): Unit = {
+		val bytes = buff.getBytes
+		println(bytes.foreach(print))
+	}
 
 
 }

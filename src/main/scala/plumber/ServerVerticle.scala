@@ -12,19 +12,19 @@ import plumber.handler.SocketHandler
 class ServerVerticle extends AbstractVerticle {
 
 
-  private var server: NetServer = _
+	private var server: NetServer = _
 
-  private val socketHandler: SocketHandler = new SocketHandler()
+	private val socketHandler: SocketHandler = new SocketHandler()
 
-  override def start(promise: Promise[Void]): Unit = {
+	override def start(promise: Promise[Void]): Unit = {
 
-    val option: NetServerOptions = new NetServerOptions().setPort(8190)
+		val option: NetServerOptions = new NetServerOptions().setPort(8190)
 
-    server = vertx.createNetServer(option)
-      .connectHandler(socketHandler)
+		server = vertx.createNetServer(option)
+			.connectHandler(socketHandler)
 
-    server.listen(8190)
-  }
+		server.listen(8190)
+	}
 
 
 }
