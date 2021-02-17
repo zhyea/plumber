@@ -13,7 +13,7 @@ class BufferHandler extends Handler[Buffer] {
 
 	override def handle(buff: Buffer): Unit = {
 		val bytes = buff.getBytes
-		println(bytes.foreach(print))
+		bytes.foreach(println)
 	}
 
 
