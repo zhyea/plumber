@@ -16,6 +16,7 @@ class ServerVerticle extends AbstractVerticle {
 
 	private val socketHandler: SocketHandler = new SocketHandler()
 
+
 	override def start(promise: Promise[Void]): Unit = {
 
 		val option: NetServerOptions = new NetServerOptions().setPort(8190)
@@ -27,4 +28,10 @@ class ServerVerticle extends AbstractVerticle {
 	}
 
 
+	override def stop(promise: Promise[Void]): Unit = {
+		if (promise.tryComplete()) {
+			println("---------------------------------------")
+			server.close()
+		}
+	}
 }
